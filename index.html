@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simon's 808</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	</head>
+	<body>
+		<h1 class="title">Simon's 808</h1>
+		<a href="#" id="startButton" class="button">Start</a>
+		<a href="#" id="stopButton" class="button">Turn off</a>
+		<a href="#" id="strictMode" class="button enabled">Strict mode</a>
+		<div class="gameBoard">
+			<a href="javascript:playSound(1)" id="pad1" class="pad"></a>
+			<a href="javascript:playSound(2)" id="pad2" class="pad"></a>
+			<a href="javascript:playSound(3)" id="pad3" class="pad"></a>
+			<a href="javascript:playSound(4)" id="pad4" class="pad"></a>
+		</div>
+			<p class="status">a</p>
+		<!-- Audio files here -->
+		<audio id="audioPad1" src="assets/audio/kick (1).WAV" preload="auto"></audio>
+		<audio id="audioPad2" src="assets/audio/hi hat (1).WAV" preload="auto"></audio>
+		<audio id="audioPad3" src="assets/audio/snare (1).WAV" preload="auto"></audio>
+		<audio id="audioPad4" src="assets/audio/tom (1).WAV" preload="auto"></audio>
+		<audio id="audioPad5" src="assets/audio/bass (4).WAV" preload="auto"></audio>
+
+		<!-- Add scriptshere-->
+		<script src="assets/js/jquery-2.1.4.min.js" type="text/javascript"></script>
+		<script src="assets/js/application.js" type="text/javascript" charset="utf-8" async defer></script>
+	</body>
+</html>
