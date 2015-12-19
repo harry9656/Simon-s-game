@@ -123,7 +123,8 @@
 							if(strictFlag === true){
 								$(".status").text("Try to replay!");
 								strictFlag = false;
-							}
+							} else 
+							if(!strict) $(".status").text("Good! Practice more :)");
 						} else{
 							if(i<0) i++;
 							else
