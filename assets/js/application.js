@@ -90,7 +90,7 @@
 							status=false;
 						} else{
 							$(".status").text("wrong pad!");
-							nextMove(Sequence, count);
+							nextMove(Sequence, count-1);
 						}
 					}
 				}
