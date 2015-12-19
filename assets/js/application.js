@@ -74,6 +74,7 @@
 			$(".pad").click(function(){
 				if(status === true && playing === true){
 					var position = parseInt(($(this).attr("id")).slice(3));
+					playSound(position);
 					if(counter <= count-2){
 						if(position === invertedSequence[counter]){
 							if( counter === count-2){
