@@ -101,7 +101,7 @@
 				if(counter === 20) $(".status").text("You won! (but nobody cares)");
 				else{
 					playing = false;
-					var i = 0;
+					var i = -2;
 					var flag = false;
 					var time = 500;
 					if(counter > 5) time = 300;
@@ -117,6 +117,8 @@
 							clearInterval(timer);
 							playing = true;
 						} else{
+							if(i<0) i++;
+							else
 							if(i >= 1 && flag === true){
 								$("#pad"+(Sequence[i-1])).css({"opacity" : "1"});
 								flag = false;
