@@ -1,0 +1,181 @@
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:300,700);
+
+html,body{
+	max-width: 700px;
+	margin: 0px auto;
+	padding: 0px;
+	position: relative;
+	font-family: "Comfortaa", sans-serif;
+	font-weight: light;
+}
+
+.title {
+	font-size: 20px;
+	font-size: 3em;
+	text-align: center;
+	margin-top: 0px;
+	padding: 0px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+.gameBoard {
+	list-style: none;
+	display: block;
+	padding: 0px;
+	margin: 30px auto;
+	text-align: center;
+
+}
+.status {
+	border: 1px solid #333;
+	border-radius: 10000px;
+	margin: 0px 20%;
+	font-size: 1.5em;
+	text-align: center;
+}
+.button {
+	font-size: 15px;
+	font-size: 1.5em;
+	width: 150px;
+	color: #333;
+	text-decoration: none;
+	display: block;
+	border: 1px solid #333;
+	border-radius: 20px 20px 20px 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	text-align: center;
+	-webkit-transition: all .25s ease;
+	   -moz-transition: all .25s ease;
+	    -ms-transition: all .25s ease;
+	     -o-transition: all .25s ease;
+	        transition: all .25s ease;
+}
+
+.button:hover {
+	opacity: 0.8;
+}
+
+.pressed{
+	background-color: black;
+	color: white;
+	opacity: 0.8;
+}
+.button:active{
+	background-color: #333;
+	color: white;
+}
+
+.pad{
+	display: inline-block;
+	padding: 0;
+	margin: 1%;
+	width: 40%;
+	height: 100px;
+	border-radius: 80px;
+	-webkit-transition: all .25s ease;
+	   -moz-transition: all .25s ease;
+	    -ms-transition: all .25s ease;
+	     -o-transition: all .25s ease;
+	        transition: all .25s ease;
+}
+.pad:hover {
+	opacity: 0.9;
+}
+
+.pad:active {
+	opacity:0.8;
+	-webkit-transform: scale(0.9);
+	   -moz-transform: scale(0.9);
+	    -ms-transform: scale(0.9);
+	     -o-transform: scale(0.9);
+	        transform: scale(0.9);
+}
+
+#pad1{
+	background-color: #152A38;
+}
+
+#pad2{
+	background-color: #29435C;
+}
+
+#pad3{
+	background-color: #556E53;
+}
+
+#pad4{
+	background-color: #D1D4C9;
+}
+.zoom{
+	-webkit-animation: pop 0.2s ease 0s 1 alternate;
+	   -moz-animation: pop 0.2s ease 0s 1 alternate;
+	    -ms-animation: pop 0.2s ease 0s 1 alternate;
+	     -o-animation: pop 0.2s ease 0s 1 alternate;
+	        animation: pop 0.2s ease 0s 1 alternate;
+}
+@keyframes pop{
+	from {
+
+	-webkit-transform: scale(1);
+	   -moz-transform: scale(1);
+	    -ms-transform: scale(1);
+	     -o-transform: scale(1);
+	        transform: scale(1);
+
+	} to {
+
+	-webkit-transform: scale(1.1);
+	   -moz-transform: scale(1.1);
+	    -ms-transform: scale(1.1);
+	     -o-transform: scale(1.1);
+	        transform: scale(1.1);
+	}
+}
+.counter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #333;
+	width:20%;
+	max-width: 100px;
+	height:80px;
+}
+
+.gameover {
+	postion: fixed;
+	display: block;
+	text-align: center;
+	font-size: 80px;
+}
+
+.enabled {
+	border: 1px solid green;
+	background-color: green;
+	color: white;
+	-webkit-transition: all .25s ease-in-out;
+	   -moz-transition: all .25s ease-in-out;
+	    -ms-transition: all .25s ease-in-out;
+	     -o-transition: all .25s ease-in-out;
+	        transition: all .25s ease-in-out;
+}
+.enabled:hover {
+	color: green;
+	background-color: white;
+}
+
+.disabled {
+	border: 1px solid red;
+	background-color: red;
+	color: white;
+	-webkit-transition: all .25s ease-in-out;
+	   -moz-transition: all .25s ease-in-out;
+	    -ms-transition: all .25s ease-in-out;
+	     -o-transition: all .25s ease-in-out;
+	        transition: all .25s ease-in-out;
+}
+.disabled:hover {
+	color: red;
+	background-color: white;
+}
