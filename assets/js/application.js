@@ -32,7 +32,7 @@
 		    			var i = 1;
 		    			var timer = setInterval(function(){
 		    				if(i === -1)
-		    				clearInterval(timer);
+		    					clearInterval(timer);
 		    				playSound(i++);
 		    				if( i >= 5) i = -1; 
 		    			},300);
@@ -74,6 +74,7 @@
 			$(".pad").click(function(){
 				if(status === true && playing === true){
 					var position = parseInt(($(this).attr("id")).slice(3));
+					playSound(position);
 					if(counter <= count-2){
 						if(position === invertedSequence[counter]){
 							if( counter === count-2){
@@ -84,11 +85,12 @@
 						} else if(strict){
 							$("#startButton").removeClass("pressed");
 							$("#stopButton").addClass("pressed");
-		    				playAll();
+							playAll();
 							gameOver();
 							status=false;
 						} else{
 							$(".status").text("wrong pad!");
+							nextMove(Sequence, count-1);
 						}
 					}
 				}
@@ -96,37 +98,37 @@
 			});
 			function nextMove(Sequence, counter){
 				$(".status").text("Playing with streak: "+counter);
-				playing = false;
-				var i = 0;
-				var flag = false;
-				var time = 500;
-				if(counter > 5) time = 300;
-				else if(counter > 9) time = 200;
-				else if(counter > 13) time = 100;
-				else if(counter === 20) $(".status").text("You won! (but nobody cares)");
-				else
-				var timer = setInterval(function(){
-					if(i === counter){
+				if(counter === 20) $(".status").text("You won! (but nobody cares)");
+				else{
+					playing = false;
+					var i = 0;
+					var flag = false;
+					var time = 500;
+					if(counter > 5) time = 300;
+					else if(counter > 9) time = 200;
+					else if(counter > 13) time = 100;
+					var timer = setInterval(function(){
+						if(i === counter){
 
-						$("#pad"+(Sequence[i-1])).css({"opacity" : "1"});
-						$("#pad"+(Sequence[i-1])).removeClass("zoom");
-
-						i = 0;
-						clearInterval(timer);
-						playing = true;
-					} else{
-						if(i >= 1 && flag === true){
 							$("#pad"+(Sequence[i-1])).css({"opacity" : "1"});
-							flag = false;
-						} else {
-							playSound(Sequence[i]);
-							$("#pad"+(Sequence[i])).css({"opacity" : "0.4"});
-							i++;
-							flag = true;
-						}
-					}
-				}, time);
+							$("#pad"+(Sequence[i-1])).removeClass("zoom");
 
+							i = 0;
+							clearInterval(timer);
+							playing = true;
+						} else{
+							if(i >= 1 && flag === true){
+								$("#pad"+(Sequence[i-1])).css({"opacity" : "1"});
+								flag = false;
+							} else {
+								playSound(Sequence[i]);
+								$("#pad"+(Sequence[i])).css({"opacity" : "0.4"});
+								i++;
+								flag = true;
+							}
+						}
+					}, time);
+				}
 			};
 		// Generates a random Sequence of numbers and returns it as array.
 		function randomSequence(){
