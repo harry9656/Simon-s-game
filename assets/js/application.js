@@ -43,6 +43,7 @@
 		    			if(strict){
 		    				$("#strictMode").addClass("enabled");
 		    				$("#strictMode").removeClass("disabled");
+		    				$(".status").text("Strict Mode On");
 		    			}
 		    			else{
 		    				$("#strictMode").addClass("disabled");
@@ -50,6 +51,7 @@
 		    				$(".status").text("Strict Mode Off");
 		    			}
 		    		});
+		    		
 			// If start is pressed start the game 
 			$("#startButton").click(function(){
 				if(status===false){
