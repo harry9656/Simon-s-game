@@ -46,6 +46,7 @@
 		    			else{
 		    				$("#strictMode").addClass("disabled");
 		    				$("#strictMode").removeClass("enabled");
+		    				$(".status").text("Strict Mode Off");
 		    			}
 		    		});
 			// If start is pressed start the game 
@@ -61,6 +62,7 @@
 					counter = 0;
 					$("#startButton").addClass("pressed");
 					$("#stopButton").removeClass("pressed");
+					if(!strict) $(".status").text("Strict Mode Off");
 				}
 			});
 
@@ -97,7 +99,7 @@
 
 			});
 			function nextMove(Sequence, counter){
-				$(".status").text("Playing with streak: "+counter);
+				if(strict)$(".status").text("Playing with streak: "+counter);
 				if(counter === 20) $(".status").text("You won! (but nobody cares)");
 				else{
 					playing = false;
@@ -116,6 +118,7 @@
 							i = 0;
 							clearInterval(timer);
 							playing = true;
+							if(!strict) $(".status").text("Try to replay!");
 						} else{
 							if(i<0) i++;
 							else
