@@ -8,6 +8,7 @@
 			var counter = 0;		// variable that points to the actual move
 			var strict = true;
 			var playing = false;
+			var strictFlag = false;
 		    // update the game status
 		    $("#startButton").removeClass("pressed");
 		    $("#stopButton").addClass("pressed");
@@ -42,12 +43,15 @@
 		    			if(strict){
 		    				$("#strictMode").addClass("enabled");
 		    				$("#strictMode").removeClass("disabled");
+		    				$(".status").text("Strict Mode On");
 		    			}
 		    			else{
 		    				$("#strictMode").addClass("disabled");
 		    				$("#strictMode").removeClass("enabled");
+		    				$(".status").text("Strict Mode Off");
 		    			}
 		    		});
+		    		
 			// If start is pressed start the game 
 			$("#startButton").click(function(){
 				if(status===false){
@@ -61,6 +65,7 @@
 					counter = 0;
 					$("#startButton").addClass("pressed");
 					$("#stopButton").removeClass("pressed");
+					if(!strict) $(".status").text("Strict Mode Off");
 				}
 			});
 
@@ -91,13 +96,14 @@
 						} else{
 							$(".status").text("wrong pad!");
 							nextMove(Sequence, count-1);
+							strictFlag = true;
 						}
 					}
 				}
 
 			});
 			function nextMove(Sequence, counter){
-				$(".status").text("Playing with streak: "+counter);
+				if(strict)$(".status").text("Playing with streak: "+counter);
 				if(counter === 20) $(".status").text("You won! (but nobody cares)");
 				else{
 					playing = false;
@@ -116,6 +122,11 @@
 							i = 0;
 							clearInterval(timer);
 							playing = true;
+							if(strictFlag === true){
+								$(".status").text("Try to replay!");
+								strictFlag = false;
+							} else 
+							if(!strict) $(".status").text("Good! Practice more :)");
 						} else{
 							if(i<0) i++;
 							else
