@@ -8,6 +8,7 @@
 			var counter = 0;		// variable that points to the actual move
 			var strict = true;
 			var playing = false;
+			var strictFlag = false;
 		    // update the game status
 		    $("#startButton").removeClass("pressed");
 		    $("#stopButton").addClass("pressed");
@@ -93,6 +94,7 @@
 						} else{
 							$(".status").text("wrong pad!");
 							nextMove(Sequence, count-1);
+							strictFlag = true;
 						}
 					}
 				}
@@ -118,7 +120,10 @@
 							i = 0;
 							clearInterval(timer);
 							playing = true;
-							if(!strict) $(".status").text("Try to replay!");
+							if(strictFlag === true){
+								$(".status").text("Try to replay!");
+								strictFlag = false;
+							}
 						} else{
 							if(i<0) i++;
 							else
